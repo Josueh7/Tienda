@@ -7,7 +7,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     Author     : USER
 */
 
-#encabezado{
+/*#encabezado{
     
     color: blueviolet;
     font-weight: bold;       
@@ -57,4 +57,33 @@ p:nth-child(odd){
 
 p:nth-child(even){
     background-color: brown;
+}*/
+
+
+
+#barraLateral{
+    position: absolute;
+    height: 81%;
+    top: 12%;
+    left: 0;
+    width: 20%; 
+    background-color: orange;
+    padding:  10px;
+}
+
+#contenido{
+    position: absolute;
+    height:81%;
+    top: 12%;
+    left: 20%;
+    width: 80%; 
+    padding: 10px;
+}
+
+piePagina{
+    bottom: 0;
+    left: 0;
+    height: 7%;
+    width: 100%;
+    background-color: aqua;
 }
