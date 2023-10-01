@@ -68,7 +68,7 @@ p:nth-child(even){
     left: 0;
     width: 20%; 
     background-color: orange;
-    padding:  10px;
+    padding: 10px;
 }
 
 #contenido{
@@ -80,10 +80,13 @@ p:nth-child(even){
     padding: 10px;
 }
 
-piePagina{
-    bottom: 0;
-    left: 0;
+#piePagina{
+    position: absolute;
+    bottom: 0%;
+    left: 0%;
     height: 7%;
     width: 100%;
     background-color: aqua;
+    padding: 15px;
+    text-align: center;
 }
