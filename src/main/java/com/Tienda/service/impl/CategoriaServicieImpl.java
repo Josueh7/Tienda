@@ -31,5 +31,18 @@ public class CategoriaServicieImpl implements CategoriaService{
         return  categoriaDao.findById(categoria.getIdCategoria()).orElse(null);
     }
     
-    
+    @Override
+    @Transactional
+    public void save(Categoria categoria) {
+        categoriaDao.save(categoria);
+    }
+
+    @Override
+    @Transactional
+    public void delete(Categoria categoria) {
+        categoriaDao.delete(categoria);
+    }
 }
+    
+    
+
