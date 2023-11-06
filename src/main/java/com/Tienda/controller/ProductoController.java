@@ -1,7 +1,9 @@
 
 package com.Tienda.controller;
 
+import com.Tienda.domain.Categoria;
 import com.Tienda.domain.Producto;
+import com.Tienda.service.CategoriaService;
 import com.Tienda.service.ProductoService;
 import com.Tienda.service.impl.FirebaseStorageServiceImpl;
 import java.util.List;
@@ -22,10 +24,16 @@ public class ProductoController {
     @Autowired
     private ProductoService productoService;
     
+    @Autowired
+    private CategoriaService categoriaService;
+    
     @GetMapping("/listado")
     public String inicio(Model model) { //el nombre es indiferente
         List<Producto> listadoProductos = productoService.getProductos(false);
+        List<Categoria> categorias = categoriaService.getCategorias(true);
         model.addAttribute("productos", listadoProductos);
+        model.addAttribute("categorias", categorias);
+        
         model.addAttribute("totalProductos", listadoProductos.size());
         return "/producto/listado";
     }
@@ -61,7 +69,9 @@ public class ProductoController {
     @GetMapping("/modificar/{idProducto}")
     public String productoModificar(Producto producto, Model model) {
         producto = productoService.getProducto(producto);
+         List<Categoria> categorias = categoriaService.getCategorias(true);
         model.addAttribute("producto", producto);
+        model.addAttribute("categorias", categorias);
         return "/producto/modifica";
     }
 }

@@ -40,10 +40,12 @@
                         <form th:action="@{/producto/guardar}" th:object="${producto}"
                               method="POST" class="was-validated" enctype="multipart/form-data">
                             <div class="modal-body">
-
                                 <div class="mb-3">
                                     <label for="idCategoria">[[#{producto.categoria}]]</label>
-                                    <input type="text" class="form-control" name="idCategoriaa" required="true"/>
+                                    <!--                                    <input type="text" class="form-control" name="idCategoriaa" required="true"/>-->
+                                    <select name="categoria.idCategoria" class="form-control">
+                                        <option th:each =" item: ${categorias}"value = "item.idCategoria" >[[#{item.descripcion}]]</option>
+                                    </select>
                                 </div>
                                 <div class="mb-3">
                                     <label for="descripcion">[[#{producto.descripcion}]]</label>
@@ -109,7 +111,7 @@
                                             <td>[[${producto.precio}]]</td>
                                             <td>[[${producto.existencias}]]</td>
                                             <td th:text="${producto.activo} ? 'Activa' : 'Inactiva'" />
-                                            <td>[[${producto.idCategoria}]]</td>
+                                            <td>[[${producto.categoria.descripcion}]]</td>
 
                                             <td>
                                                 <a th:href="@{/producto/eliminar/}+${producto.idProducto}"
@@ -164,9 +166,9 @@
                                             <div class="card-body">
                                                 <div class="mb-3">
                                                     <label for="idCategoria">[[#{producto.categoria}]]</label>
-                                                    <input type="text" class="form-control" name="idCategoriaa" 
-                                                           th:field="*{idCategoria}"
-                                                           required="true"/>
+                                                    <select name="categoria.idCategoria"  th:field "*{categoria.idCategoria}" class="form-control">
+                                                        <option th:each =" item: ${categorias}"value = "item.idCategoria" >[[#{item.descripcion}]]</option>
+                                                    </select>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="descripcion">[[#{producto.descripcion}]]</label>
@@ -177,14 +179,14 @@
                                                 <div class="mb-3">
                                                     <label for="detalle">[[#{producto.detalle}]]</label>
                                                     <textarea type="text" class="form-control" name="detalle" 
-                                                           th:field="*{detalle}"
-                                                           required="true"
-                                                           rows=5/>
+                                                              th:field="*{detalle}"
+                                                              required="true"
+                                                              rows=5/>
                                                 </div>                                
                                                 <div class="mb-3">
                                                     <label for="precio">[[#{producto.precio}]]</label>
                                                     <input type="text" class="form-control" name="precio" 
-                                                            th:field="*{precio}"
+                                                           th:field="*{precio}"
                                                            required="true"/>
                                                 </div>                                
                                                 <div class="mb-3">
@@ -227,7 +229,7 @@
                         </a>
                     </div>
                     <div class="col-md-4 d-grid">                                
-                        <a th:href="@{/producto/eliminar/}+${producto.idCategoria}"
+                        <a th:href="@{/producto/eliminar/}+${producto.categoria.descripcion}"
                            class="btn btn-danger">
                             <i class="fas fa-trash"></i> [[#{accion.eliminar}]]
                         </a>
