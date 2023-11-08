@@ -42,10 +42,10 @@
                             <div class="modal-body">
                                 <div class="mb-3">
                                     <label for="idCategoria">[[#{producto.categoria}]]</label>
-                                    <!--                                    <input type="text" class="form-control" name="idCategoriaa" required="true"/>-->
+                                    <!--input type="text" class="form-control" name="idCategoriaa" required="true"/>-->
                                     <select name="categoria.idCategoria" class="form-control">
-                                        <option th:each =" item: ${categorias}"value = "item.idCategoria" >[[#{item.descripcion}]]</option>
-                                    </select>
+                                        <option th:each =" item: ${categorias}" th:value = "${item.idCategoria}" >[[${item.descripcion}]]</option>
+                                    </select>
                                 </div>
                                 <div class="mb-3">
                                     <label for="descripcion">[[#{producto.descripcion}]]</label>
