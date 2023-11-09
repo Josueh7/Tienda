@@ -166,8 +166,8 @@
                                             <div class="card-body">
                                                 <div class="mb-3">
                                                     <label for="idCategoria">[[#{producto.categoria}]]</label>
-                                                    <select name="categoria.idCategoria"  th:field "*{categoria.idCategoria}" class="form-control">
-                                                        <option th:each =" item: ${categorias}"value = "item.idCategoria" >[[#{item.descripcion}]]</option>
+                                                    <select name="categoria.idCategoria"  th:field="*{categoria.idCategoria}" class="form-control">
+                                                        <option th:each =" item: ${categorias}" th:value="${item.idCategoria}" >[[${item.descripcion}]]</option>
                                                     </select>
                                                 </div>
                                                 <div class="mb-3">
