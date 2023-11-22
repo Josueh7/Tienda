@@ -56,8 +56,8 @@
                             </li>
                         </ul>
                         <ul class="navbar-nav" sec:authorize="isAuthenticated()" >
-                            <li class="nav-item text-white my-auto" th:if="${ctx.session.usuarioImagen != null}">
-                                <img th:src="${ctx.session.usuarioImagen}" height="40">                            
+                            <li class="nav-item text-white my-auto" th:if="${#ctx.session.usuarioImagen != null}">
+                                <img th:src="${#ctx.session.usuarioImagen}" height="40">                            
                             <li class="nav-item text-white my-auto">
                                 <i class="fa fa-user mx-2"></i><span sec:authentication='name'>Username</span>
                             </li>
